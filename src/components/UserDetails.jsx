@@ -41,7 +41,7 @@ function UserDetails(props) {
         //eslint-disable-next-line
     }, [uid]);
 
-      console.log(state);
+    console.log(state);
 
     return (
         <React.Fragment>
@@ -84,7 +84,7 @@ function UserDetails(props) {
                 </Segment>
             </Segment.Group>
             <Segment textAlign="center" >
-            <Label color="purple" size="big" style={{ margin: "5px" }} >
+                <Label color="purple" size="big" style={{ margin: "5px" }} >
                     <Icon name="github" />
                     Public Repos: {state.profile.public_repos}
                 </Label>
@@ -100,13 +100,18 @@ function UserDetails(props) {
                     <Icon name="user plus" />
                     Following: {state.profile.following}
                 </Label>
-                
+
             </Segment>
             <Segment.Group>
                 <Loader active={state.loading} />
+                <Segment textAlign="center">
+                    <Label color="grey" size="big" style={{ margin: "5px" }}>
+                        Popular Repositories of {state.profile.name}
+                    </Label>
+                </Segment>
                 {state.repository &&
                     state.repository.map((repo, i) => (
-                        <Segment as="h2" key={i} >
+                        <Segment as="h2" key={i} textAlign="center">
                             <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
                                 {repo.name}
                             </a>
