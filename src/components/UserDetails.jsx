@@ -22,8 +22,8 @@ function UserDetails(props) {
 
     useEffect(() => {
         const getUser = async () => {
-            const client_id = '' //'c395bf9da609523964c9';
-            const client_secret = '' //'f947fc7e6bcc93154764f43f6d4aa13268be9f7a';
+            const client_id = process.env.REACT_APP_CLIENT_ID;
+            const client_secret = process.env.REACT_APP_CLIENT_SECRET;
             setState({ ...state, loading: true });
             const profileResponse = await fetch(
                 `https://api.github.com/users/${uid}?client_id=${client_id}&client_secret=${client_secret}`
